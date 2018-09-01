@@ -8,7 +8,7 @@ You need to install these tools.
 - [aws-cli](https://docs.aws.amazon.com/ja_jp/streams/latest/dev/kinesis-tutorial-cli-installation.html)
 
 ## Install and Setup aws-cli
-Install 'aws-cli' with `pip`.
+Install **awscli** with `pip`.
 
 ```
 $ pip install awscli --upgrade --user
