@@ -1,4 +1,4 @@
-**aws-lambda-deployer** is library that archive your source code to zip and deploy to AWS Lambda Function.
+**aws-lambda-deployer** is library that archive your local source code to zip and deploy to AWS Lambda Function.
 
 # Requirement
 You need to install these tools.
@@ -20,12 +20,12 @@ Default output format [None]: json
 ## Created Lambda function
 You need to finish create Lambda function before deploy.
 
-# Use aws-lambda-deployer
+# Use aws-lambda-local-deployer
 ## install
-Please install by npm.
+Please install with `npm install`.
 
 ```
-npm install aws-lambda-deployer
+npm install --save-dev aws-lambda-local-deployer
 ```
 
 ## Create JSON parameter file
@@ -38,7 +38,7 @@ aldeploy --init
 `$NODE_HOME/.aldeploy.json` is created. You can set these parameters in this file.
 
 - `rootdir`(string) : Target archive directory root. Default `.`($NODE_HOME).
-- `zipname`(string) : Archive zip file name. Default `skill.zip`.
+- `zipname`(string) : Archive zip file name. Default `lambda.zip`.
 - `deletezip`(boolean) : If true, archive zip file is deleted. Default `true`.
 - `exclude`(Array(string)) : If filename match this pattern, it is'nt contained archive file. you can write in glob format.
 - `region`(string,option) : Target deployed AWS Region. If you use command line option, this parameter is ignored.

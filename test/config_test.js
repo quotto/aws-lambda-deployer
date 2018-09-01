@@ -5,10 +5,10 @@ const rewire = require('rewire');
 const assert = require('assert');
 const config = require('../lib/config.js');
 const config_filename = '.aldeployrc.json';
-const zip_filename = 'skill.zip';
+const default_zipname = 'lambda.zip';
 const defaultconfig = {
     rootdir: '.',
-    zipname: zip_filename,
+    zipname: default_zipname,
     deletezip: true,
     exclude: [config_filename]
 };
@@ -24,7 +24,7 @@ describe('config.js',function(){
                 assert(configfile,
                     {
                         rootdir:'.',
-                        zipname: 'skill.zip',
+                        zipname: default_zipname,
                         dletezip: true,
                         exclude: [config_filename]
                     }
@@ -64,7 +64,7 @@ describe('config.js',function(){
                 const configJS =rewire('../lib/config.js');
                 fs.appendFileSync(config_filename,JSON.stringify(changed_config));
                 try {
-                    const CONFIG = configJS.loadConfig('ap-north-east2','aaaaaa');
+                    configJS.loadConfig('ap-north-east2','aaaaaa');
                     const actualConfig = configJS.__get__('CONFIG');
                     assert(actualConfig.rootdir,defaultconfig.rootdir);
                     assert(actualConfig.zipname,defaultconfig.zipname);
@@ -119,12 +119,12 @@ describe('config.js',function(){
                 done();
             }).catch((err)=>{
                 console.log(err.message);
-                fs.access(zip_filename,(err)=>{
+                fs.access(default_zipname,(err)=>{
                     if(err) {
                         assert(false);
                     } else {
                         assert(true);
-                        fs.unlinkSync(zip_filename);
+                        fs.unlinkSync(default_zipname);
                     }
                     done();
                 });
@@ -136,10 +136,10 @@ describe('config.js',function(){
         const deployEnd = configJS.__get__('deployEnd');
         it('delete file when finished',function(done){
             try {
-                configJS.__set__('CONFIG',{deletezip:true,zipname:zip_filename});
-                fs.appendFileSync(zip_filename,'test');
+                configJS.__set__('CONFIG',{deletezip:true,zipname:default_zipname});
+                fs.appendFileSync(default_zipname,'test');
                 deployEnd();
-                fs.access(zip_filename,(err)=>{
+                fs.access(default_zipname,(err)=>{
                     err ? assert(true) : assert(false);
                     done();
                 });
@@ -150,13 +150,14 @@ describe('config.js',function(){
         });
         it('exist file when finished',function(done){
             try {
+                const test_zipname = 'test.zip';
                 configJS.__set__('CONFIG',{deletezip:false,zipname:'test.zip'});
-                fs.appendFileSync(zip_filename,'test');
+                fs.appendFileSync(test_zipname,'test');
 
                 deployEnd();
-                fs.access(zip_filename,(err)=>{
+                fs.access(test_zipname,(err)=>{
                     err ? assert(false) : assert(true);
-                    fs.unlinkSync(zip_filename);
+                    fs.unlinkSync(test_zipname);
                     done();
                 });
             } catch(err){
