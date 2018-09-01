@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 
 
@@ -36,10 +37,7 @@ const getArgv = ()=> {
 const args = getArgv();
 const config = require('../lib/config.js');
 
-console.log(args);
 if(args.init) {
-    const result = require('child_process').execSync('ppp -v');
-    console.log(result.toString());
     config.initConfig();
 } else {
 

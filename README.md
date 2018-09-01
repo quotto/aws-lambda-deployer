@@ -47,19 +47,19 @@ $ aldeploy --init
 - `rootdir`(string) : Target archive directory root. Default `.`($NODE_HOME).
 - `zipname`(string) : Archive zip file name. Default `lambda.zip`.
 - `deletezip`(boolean) : If true, archive zip file is deleted. Default `true`.
-- `exclude`(Array(string)) : If filename match this pattern, it is'nt contained archive file. you can write in glob format.
+- `exclude`(Array(string)) : If filename match this pattern, it is'nt contained archive file. you can write in glob format.Default `.aldeploy.json`.
 - `region`(string,option) : Target deployed AWS Region. If you use command line option, this parameter is ignored.
-- `funcname`(string,option): Target deployed AWS Lambda Function name. If you use command line option, this parameter is ignored.
+- `function`(string,option): Target deployed AWS Lambda Function name. If you use command line option, this parameter is ignored.
 
 ## Deploy
-Now you can deploy with `aldeploy deploy`.
+Now you can deploy with `aldeploy`.
 
 ```
-$ aldeploy deploy
+$ aldeploy
 ```
 
-Also you can give parameters `--region` and `--funcname`.These are prioritized, if although you set parameter file.
+Also you can give parameters `--region` and `--function`.These are prioritized, if although you set parameter file.
 
 ```
-$ aldeploy deploy --region ap-northe-east2 --funcname MyLambdaFunction
+$ aldeploy --region ap-north-east1 --function LambdaFunctionName
 ```

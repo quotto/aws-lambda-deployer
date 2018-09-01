@@ -1,12 +1,12 @@
 {
     "name": "aws-lambda-local-deployer",
-    "version": "1.0.1",
+    "version": "1.0.5",
     "description": "Deploy your local source code to AWS Lambda easily and quickliy",
     "main": "index.js",
     "scripts": {
         "test": "mocha --timeout 30000"
     },
-    "scripts": {
+    "bin": {
         "aldeploy": "bin/aldeploy.js"
     },
     "repository": {

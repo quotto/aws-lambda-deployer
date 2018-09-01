@@ -38,7 +38,7 @@ describe('config.js',function(){
     });
     describe('loadConfig',function(){
         describe('file exists',function(){
-            it('region,funcname use parameter',function(){
+            it('region,function use parameter',function(){
                 try {
                     const configJS =rewire('../lib/config.js');
                     fs.appendFileSync(config_filename,JSON.stringify(defaultconfig));
@@ -49,7 +49,7 @@ describe('config.js',function(){
                     assert(actualConfig.deletezip,defaultconfig.deletezip);
                     assert(actualConfig.exclude,defaultconfig.exclude);
                     assert(actualConfig.region,'ap-north-east2');
-                    assert(actualConfig.funcname,'test');
+                    assert(actualConfig.function,'test');
                 } catch(err) {
                     console.log(err);
                     assert(false);
@@ -57,7 +57,7 @@ describe('config.js',function(){
                     fs.unlinkSync(config_filename);
                 }
             });
-            it('region,funcname use configfile',function(){
+            it('region,function use configfile',function(){
                 let changed_config = _.clone(defaultconfig);
                 changed_config.region = 'test';
                 changed_config.function = 'test';
@@ -71,7 +71,7 @@ describe('config.js',function(){
                     assert(actualConfig.deletezip,defaultconfig.deletezip);
                     assert(actualConfig.exclude,defaultconfig.exclude);
                     assert(actualConfig.region,changed_config.region);
-                    assert(actualConfig.funcname,changed_config.funcname);
+                    assert(actualConfig.function,changed_config.function);
                 } catch(err) {
                     console.log(err);
                     assert(false);
@@ -111,7 +111,7 @@ describe('config.js',function(){
             const configJS =rewire('../lib/config.js');
             const changed_config = _.clone(defaultconfig);
             changed_config.region='aaaaaaaaaaaaaaaaaaa';
-            changed_config.funcname='test';
+            changed_config.function='test';
             configJS.__set__('CONFIG',changed_config);
 
             configJS.deploy().then(()=>{
