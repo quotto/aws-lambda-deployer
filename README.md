@@ -61,5 +61,5 @@ $ aldeploy
 Also you can give parameters `--region` and `--function`.These are prioritized, if although you set parameter file.
 
 ```
-$ aldeploy --region ap-north-east1 --function LambdaFunctionName
+$ aldeploy --region ap-northeast-1 --function LambdaFunctionName
 ```
