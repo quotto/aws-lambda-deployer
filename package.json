@@ -1,0 +1,39 @@
+{
+    "name": "aws-lambda-deployer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha --timeout 20000"
+    },
+    "bin": {
+        "aldeploy": "bin/aldeploy.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TsuyoshiUshio/hello-ushio.git"
+    },
+    "keywords": [
+        "aws",
+        "lambda",
+        "AWS Lambda",
+        "deploy"
+    ],
+    "bugs": {
+        "url": "https://github.com/TsuyoshiUshio/hello-ushio/issues"
+    },
+    "homepage": "https://github.com/TsuyoshiUshio/hello-ushio#readme",
+    "author": "quo1987",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^5.4.0",
+        "lodash": "^4.17.10",
+        "mocha": "^5.2.0",
+        "rewire": "^4.0.1"
+    },
+    "dependencies": {
+        "archiver": "^3.0.0",
+        "argparse": "^1.0.10",
+        "aws-sdk": "^2.302.0"
+    }
+}
