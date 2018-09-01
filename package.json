@@ -1,6 +1,6 @@
 {
     "name": "aws-lambda-local-deployer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Deploy your local source code to AWS Lambda easily and quickliy",
     "main": "index.js",
     "scripts": {
@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/TsuyoshiUshio/hello-ushio.git"
+        "url": "git+https://github.com/quotto/aws-lambda-local-deployer.git"
     },
     "keywords": [
         "aws",
@@ -20,9 +20,9 @@
         "deploy"
     ],
     "bugs": {
-        "url": "https://github.com/TsuyoshiUshio/hello-ushio/issues"
+        "url": "https://github.com/quotto/aws-lambda-local-deployer/issues"
     },
-    "homepage": "https://github.com/TsuyoshiUshio/hello-ushio#readme",
+    "homepage": "https://github.com/quotto/aws-lambda-local-deployer#readme",
     "author": "quo1987",
     "license": "ISC",
     "devDependencies": {

@@ -3,14 +3,21 @@
 # Requirement
 You need to install these tools.
 
-- [Python3 & pip](https://www.python.org/downloads/)
+- [Python](https://www.python.org/downloads/)(Python2.6.5+ or Python3.3+)
+- [pip](https://pypi.org/project/pip/)
 - [aws-cli](https://docs.aws.amazon.com/ja_jp/streams/latest/dev/kinesis-tutorial-cli-installation.html)
 
-## Set up aws-cli
+## Install and Setup aws-cli
+Install 'aws-cli' with `pip`.
+
+```
+$ pip install awscli --upgrade --user
+```
+
 After you install, you need to set AWS Credentials in aws-cli. Please execute `aws configure`.
 
 ```
-aws configure
+$ aws configure
 AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-west-2
@@ -25,14 +32,14 @@ You need to finish create Lambda function before deploy.
 Please install with `npm install`.
 
 ```
-npm install --save-dev aws-lambda-local-deployer
+$ npm install --save-dev aws-lambda-local-deployer
 ```
 
 ## Create JSON parameter file
 You need JSON parameter file to use this library. You can create parameter file with `aldeploy --init`.
 
 ```
-aldeploy --init
+$ aldeploy --init
 ```
 
 `$NODE_HOME/.aldeploy.json` is created. You can set these parameters in this file.
@@ -48,11 +55,11 @@ aldeploy --init
 Now you can deploy with `aldeploy deploy`.
 
 ```
-aldeploy deploy
+$ aldeploy deploy
 ```
 
 Also you can give parameters `--region` and `--funcname`.These are prioritized, if although you set parameter file.
 
 ```
-aldeploy deploy --region ap-northe-east2 --funcname MyLambdaFunction
+$ aldeploy deploy --region ap-northe-east2 --funcname MyLambdaFunction
 ```
